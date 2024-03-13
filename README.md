@@ -1,1 +1,1 @@
-# 2024_279AS_Project3_Lane_Detection
+# 2024 Spring ECE279AS Project 3: Lane Detection via Physical Algorithms
