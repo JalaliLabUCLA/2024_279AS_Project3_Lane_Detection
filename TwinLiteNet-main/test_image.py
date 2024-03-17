@@ -17,8 +17,8 @@ def Run(model,img):
     img = np.ascontiguousarray(img)
     img=torch.from_numpy(img)
     img = torch.unsqueeze(img, 0)  # add a batch dimension
-    img=img.float() / 255.0
-    img = img
+    img=img.cuda().float() / 255.0
+    img = img.cuda()
     with torch.no_grad():
         img_out = model(img)
     x0=img_out[0]
