@@ -10,9 +10,9 @@ Data folder
 
 - val
 
-The specific file paths will likely need to be updated on a per-computer basis.  For example in YOLOP-main/lib/config/default.py there are several variables that store paths to these data folders.  For TwinLiteNet, the TwinLiteNet-main/DataSet.py file will need to be updated with the specific paths.  As an example, the input images in the experiment notebooks tend to be stored in ./bdd100k/images/100k with ground truth in ./bdd100k/labels/lane/masks.
+The specific file paths will likely need to be updated on a per-computer basis.  For example in `YOLOP-main/lib/config/default.py` there are several variables that store paths to these data folders.  For TwinLiteNet, the `TwinLiteNet-main/DataSet.py` file will need to be updated with the specific paths.  As an example, the input images in the experiment notebooks tend to be stored in `./bdd100k/images/100k` with ground truth in `./bdd100k/labels/lane/masks`.
 
-For dependencies, running the lanedetection notebooks in code/ should be done with the requirements.txt file included in code/.  For running inference or training on any of the models please use their requirements.txt files included in their folders.  Strictly speaking, the same environment should work for everything, but following the aforementioned guidelines will minimize the risk of any problems.
+For dependencies, running the lanedetection notebooks in `code/` should be done with the `requirements.txt` file included in `code/`.  For running inference or training on any of the models please use their `requirements.txt` files included in their folders.  Strictly speaking, the same environment should work for everything, but following the aforementioned guidelines will minimize the risk of any problems.
 
 ## Important Links
 
@@ -88,9 +88,9 @@ Note that this CUDA version might be too old for newer NVIDIA GPUs such as RTX 3
 
 First, the paths of the training/validation datasets should be updated by going to the YOLOP-main/lib/config/default.py file.
 
-In Line 54,57,58, and 59 of the default.py file, change the path to image folder, det_annotations folder, da_seg_annotations folder, and path of ll_seg_annotations folder, separately. The variable “condition” has three options: “” (for all conditions), “*foggy” (for foggy condition only), and “*_night” (for night condition only). If training on the whole dataset is required, it should be set to “”. 
+In Line 54,57,58, and 59 of the default.py file, change the path to image folder, det_annotations folder, da_seg_annotations folder, and path of ll_seg_annotations folder, separately. The variable “condition” has three options: “” (for all conditions), “_foggy” (for foggy condition only), and “_night” (for night condition only). If training on the whole dataset is required, it should be set to “”. 
 
-Second, tune hyperparameters based on specific requirements. For example, we set the training batch size to be 16 (_C.TRAIN.BATCH_SIZE_PER_GPU = 16) to avoid the GPU out of memory error, and set the testing batch size to be 1 (_C.TEST.BATCH_SIZE_PER_GPU = 1) because we want the test each image sample individually.
+Second, tune hyperparameters based on specific requirements. For example, we set the training batch size to be 16 (`_C.TRAIN.BATCH_SIZE_PER_GPU = 16`) to avoid the GPU out of memory error, and set the testing batch size to be 1 (`_C.TEST.BATCH_SIZE_PER_GPU = 1`) because we want the test each image sample individually.
 
 Third, start training by running the following code in the command line:
 
