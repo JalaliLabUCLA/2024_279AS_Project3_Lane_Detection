@@ -39,7 +39,7 @@ model = net.TwinLiteNet()
 model = torch.nn.DataParallel(model)
 model = model.cuda()
 #model.load_state_dict(torch.load('../Weights/TwinNet/digital_16/model_99.pth',map_location='cpu'))
-model.load_state_dict(torch.load(sys.argv[1],map_location='cpu'))
+model.load_state_dict(torch.load(sys.argv[1]))
 
 model.eval()
 
