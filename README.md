@@ -102,7 +102,8 @@ First, change the path of the weight file (.pth) we want to test in YOLOP-main/t
 
 Second, start validation by running the following code int the command line:
 
-python tools/test.py
+
+`<python tools/test.py>`
 
 Refer to 7 to see all the final results .
 
