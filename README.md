@@ -5,10 +5,8 @@
 The basic setup is for every data folder (the ground truth, the input images, etc) to be of the form:
 
 Data folder
-
-- train
-
-- val
+├── train
+└── val
 
 The specific file paths will likely need to be updated on a per-computer basis.  For example in `YOLOP-main/lib/config/default.py` there are several variables that store paths to these data folders.  For TwinLiteNet, the `TwinLiteNet-main/DataSet.py` file will need to be updated with the specific paths.  As an example, the input images in the experiment notebooks tend to be stored in `./bdd100k/images/100k` with ground truth in `./bdd100k/labels/lane/masks`.
 
@@ -60,7 +58,7 @@ We started by experimenting with several different preprocessing strategies incl
 
 In the end, the pre-processing pipeline we developed is as shown below (from slide 20 of the presentation) implemented in the latter notebook to output new folders with pre-processed data.
 
-![Enter image alt description](Images/bNF_Image_1.jpeg)
+![Enter image alt description](readme_images/bNF_Image_1.jpeg)
 
 In the first section, we check if the image is nighttime or daytime.  If it is nighttime, then we run VEViD first to light it up since otherwise PST will destroy too many features in the darker parts of the image.  After we run PST, we can take the default output which is a digital image of 0s and 1s, however, we found that having all the pixels be binary black or white destroys too much information for lane detection.  As such, we can also preserve the original analog output which is a spectrum between 0 and 1.  Inspired by the method by which PST converts to a digital image using percentiles, we convert the spectrum to percentiles in each image and then pass to an x -> x^5 function on each individual pixel to remove unwanted background features.
 
@@ -152,21 +150,21 @@ We present our results as follows.
 
 **YOLOP Results**
 
-![Enter image alt description](Images/kkY_Image_2.jpeg)
+![Enter image alt description](readme_images/kkY_Image_2.jpeg)
 
 **TwinLiteNet Results**
 
-![Enter image alt description](Images/hIn_Image_3.jpeg)
+![Enter image alt description](readme_images/hIn_Image_3.jpeg)
 
 We see that we are able to improve the IOU consistently for YOLOP by training on analog PhyCV pre-processed data across normal, night, and foggy conditions.  Since IOU takes into account false positives whereas the line accuracy does not we think this is an important improvement.  For TwinLiteNet, we were unable to see improvement with our pre-processing strategy, however, different hyperparameter choices in the pre-processing could potentially help with this.
 
 Here we can see an example of running inference on a night image.  Some interesting features are that the analog pre-processed data models’ output tend to be less noisy and are even able to overcome issues like completing gaps between drawn lanes.  Compared with the digital pre-processed data models’ output, the analog ones seem to be closer to what a human driving would interpret the lanes as.
 
-![Enter image alt description](Images/qxk_Image_4.jpeg)
+![Enter image alt description](readme_images/qxk_Image_4.jpeg)
 
 We can also see an example of running inference on a foggy image.  We see that in this case the YOLOP benchmark output seems to have the most detailed lane line outputs.  Between the digital and analog we see that the analog consistently outputs more detail than the digital and is closer to the benchmark and ground truth.
 
-![Enter image alt description](Images/VzG_Image_5.jpeg)
+![Enter image alt description](readme_images/VzG_Image_5.jpeg)
 
 ## References
 
