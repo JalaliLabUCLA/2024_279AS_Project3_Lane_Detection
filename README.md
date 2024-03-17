@@ -80,7 +80,7 @@ conda install pytorch==1.7.0 torchvision==0.8.0 cudatoolkit=10.2 -c pytorch
 
 See requirements.txt (in YOLOP-main) for additional dependencies and version requirements:
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 Note that this CUDA version might be too old for newer NVIDIA GPUs such as RTX 30 and 40 series. If an error occurs, a newer version of CUDA and the corresponding version of PyTorch need to be installed. For example, try using cuda=11.3, pytorch=1.12.0. The installation command can be found on the [PyTorch website](https://pytorch.org/get-started/previous-versions/). 
 
@@ -94,7 +94,7 @@ Second, tune hyperparameters based on specific requirements. For example, we set
 
 Third, start training by running the following code in the command line:
 
-python tools/train.py
+`python tools/train.py`
 
 5.3. Validation Process
 
@@ -102,7 +102,7 @@ First, change the path of the weight file (.pth) we want to test in YOLOP-main/t
 
 Second, start validation by running the following code int the command line:
 
-python tools/test.py
+`python tools/test.py`
 
 Refer to 7 to see all the final results .
 
@@ -130,7 +130,7 @@ Second, set the training hyperparameters in TwinLiteNet-main/train.py.
 
 Third, start training by running the following code in the command line:
 
-python main.py
+`python main.py`
 
 6.3. Validation Process
 
@@ -138,7 +138,7 @@ First, change the path of the weight file (.pth) we want to test in TwinLiteNet-
 
 Second, start validation by running the following code in the command line:
 
-python val.py
+`python val.py`
 
 **7. Compare PST+DNN on Night Time Data**
 
