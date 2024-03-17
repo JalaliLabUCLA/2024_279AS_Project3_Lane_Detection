@@ -30,7 +30,7 @@ Link to collab demo of inference:
 
 Read the PST paper, download the code from GitHub, and understand the algorithm and parameters.  Generate the sample results as found in the GitHub repository in a Jupyter Notebook.
 
-Key file: code/lanedetection.ipynb
+Key file: `code/lanedetection.ipynb`
 
 See section 1 of this notebook for examples of running the PST algorithm on various images.
 
@@ -38,7 +38,7 @@ See section 1 of this notebook for examples of running the PST algorithm on vari
 
 Explore the BDD100K dataset and repository from Berkeley Deep Drive. Understand data formatting, training, evaluation APIs, and metadata. Create a Colab notebook that uses a PyTorch Dataloader to load images along with their category (daytime, nighttime, fog, etc.). Show images and annotations from each of these categories.
 
-Key file: code/lanedetection.ipynb
+Key file: `code/lanedetection.ipynb`
 
 In section 2 of this notebook, we load the data into a dataframe with image names and the various conditions - weather, time, etc.  We display various example images with their annotation and information as well as load them into a dataframe for convenient use in experiments.
 
@@ -46,7 +46,7 @@ In section 2 of this notebook, we load the data into a dataframe with image name
 
 Explore the BDD100K dataset and repository from Berkeley Deep Drive for training and evaluating lane line detection. Demonstrate inference with a pretrained model, and record accuracy on training, validation, and test datasets. You may use a smaller subset of the data if necessary. This will become your benchmark for further experimentation.
 
-Key files: code/lanedetection.ipynb, YOLOP-main/tools/test.py, YOLOP-main/tools/demo.py
+Key files: `code/lanedetection.ipynb`, `YOLOP-main/tools/test.py`, `YOLOP-main/tools/demo.py`
 
 In section 3 of the notebook, we demonstrate inference on the pre-trained YOLOP model and record the accuracy and IOU on the training and validation sets.  In practice, however, it is easier to directly call test.py provided by YOLOP for accuracy and IOU or demo.py in the same folder for inference.
 
@@ -54,7 +54,7 @@ In section 3 of the notebook, we demonstrate inference on the pre-trained YOLOP 
 
 Apply PST preprocessing to images in the BDD100K dataset. Understand the impact of parameters on edge enhancement. Find a suitable set of parameters for processing across different images. Compare the performance of PST feature extraction across daytime, nighttime, and foggy scenes.
 
-Key files: code/lanedetection.ipynb, code/lanedetectionPreProcesser.ipynb
+Key files: `code/lanedetection.ipynb`, `code/lanedetectionPreProcesser.ipynb`
 
 We started by experimenting with several different preprocessing strategies including varying parameters, using different PhyCV algorithms, and applying different morphological operations at the end.  See the former notebook’s section 4 for some of the code used to run experiments.
 
@@ -76,7 +76,7 @@ To train the YOLOP model, we will first need to follow the instructions in its r
 
 This codebase has been developed with python version 3.7, PyTorch 1.7+ and torchvision 0.8+:
 
-conda install pytorch==1.7.0 torchvision==0.8.0 cudatoolkit=10.2 -c pytorch
+`conda install pytorch==1.7.0 torchvision==0.8.0 cudatoolkit=10.2 -c pytorch`
 
 See requirements.txt (in YOLOP-main) for additional dependencies and version requirements:
 
@@ -144,7 +144,7 @@ Second, start validation by running the following code in the command line:
 
 Compare the performance of the PST preprocessed model with the benchmark on specific environment conditions, including nighttime and fog. How do the different techniques compare in terms of robustness?
 
-Key files: code/lanedetectionPreProcesser.ipynb
+Key files: `code/lanedetectionPreProcesser.ipynb`
 
 Using the 2nd part of this notebook, we can split every data_folder into data_folder_foggy and data_folder_night with the foggy and night parts respectively.  This allows us to run inference and test code on these subsets of the data.
 
