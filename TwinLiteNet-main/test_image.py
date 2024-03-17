@@ -7,6 +7,7 @@ import os
 import torch
 from model import TwinLite as net
 import cv2
+import sys
 
 def Run(model,img):
     img = cv2.resize(img, (640, 360))
@@ -16,8 +17,8 @@ def Run(model,img):
     img = np.ascontiguousarray(img)
     img=torch.from_numpy(img)
     img = torch.unsqueeze(img, 0)  # add a batch dimension
-    img=img.cuda().float() / 255.0
-    img = img.cuda()
+    img=img.float() / 255.0
+    img = img
     with torch.no_grad():
         img_out = model(img)
     x0=img_out[0]
@@ -37,13 +38,19 @@ def Run(model,img):
 model = net.TwinLiteNet()
 model = torch.nn.DataParallel(model)
 model = model.cuda()
-model.load_state_dict(torch.load('pretrained/best.pth'))
+#model.load_state_dict(torch.load('../Weights/TwinNet/digital_16/model_99.pth',map_location='cpu'))
+model.load_state_dict(torch.load(sys.argv[1],map_location='cpu'))
+
 model.eval()
 
-image_list=os.listdir('images')
-shutil.rmtree('results')
-os.mkdir('results')
+input_dir = '../test_images/digital/images'
+input_dir = sys.argv[2]
+
+output_dir = '../test_images/digital/twinlitenet'
+output_dir = sys.argv[3]
+
+image_list=os.listdir(input_dir)
 for i, imgName in enumerate(image_list):
-    img = cv2.imread(os.path.join('images',imgName))
+    img = cv2.imread(os.path.join(input_dir,imgName))
     img=Run(model,img)
-    cv2.imwrite(os.path.join('results',imgName),img)
+    cv2.imwrite(os.path.join(output_dir,imgName),img)
