@@ -18,11 +18,11 @@ For dependencies, running the lanedetection notebooks in code/ should be done wi
 
 Link to weights file for trained models:
 
+[Weights](https://drive.google.com/drive/u/0/folders/17HPpTAolBZBnmcHTsjMO5RUPojjTv-3E)
 
 Link to collab demo of inference:
 
-(may need to copy folder it is stored in,
-, to your drive to run it)
+[demo.ipynb](https://colab.research.google.com/drive/1tHJKpiTG0mY7KiPVXM05YFr-VFhBNLKY#scrollTo=SQSlB2psS8w-) (may need to copy folder it is stored in, [Lane_Detection_Code](https://drive.google.com/drive/u/0/folders/1ZIpxhzFyk8FEZX_znE3ooy_xfByrUXJW), to your drive to run it)
 
 ## Tasks
 
@@ -60,7 +60,7 @@ We started by experimenting with several different preprocessing strategies incl
 
 In the end, the pre-processing pipeline we developed is as shown below (from slide 20 of the presentation) implemented in the latter notebook to output new folders with pre-processed data.
 
-![Enter image alt description](Images/CTI_Image_1.jpeg)
+![Enter image alt description](Images/bNF_Image_1.jpeg)
 
 In the first section, we check if the image is nighttime or daytime.  If it is nighttime, then we run VEViD first to light it up since otherwise PST will destroy too many features in the darker parts of the image.  After we run PST, we can take the default output which is a digital image of 0s and 1s, however, we found that having all the pixels be binary black or white destroys too much information for lane detection.  As such, we can also preserve the original analog output which is a spectrum between 0 and 1.  Inspired by the method by which PST converts to a digital image using percentiles, we convert the spectrum to percentiles in each image and then pass to an x -> x^5 function on each individual pixel to remove unwanted background features.
 
@@ -152,82 +152,21 @@ We present our results as follows.
 
 **YOLOP Results**
 
-|  | All (10,000 Images) | Night (3,929 Images) | Foggy (13 Images) |
-|---|---|---|---|
-| Benchmark | Acc (0.652)    
-IOU (0.238)  
-mIOU (0.611)
-0.0300s/frame | Acc (0.625)    
-IOU (0.227)  
-mIOU (0.605)
-0.0301s/frame | Acc (0.581)    
-IOU (0.207)  
-mIOU (0.596)
-0.0240s/frame |
-| Digital PhyCV Preprocessed Data | Acc (0.501)    
-IOU (0.222)  
-mIOU (0.604)
-0.0304s/frame | Acc (0.483)    
-IOU (0.215)  
-mIOU (0.601)
-0.0304s/frame | Acc (0.470)    
-IOU (0.201)  
-mIOU (0.595)
-0.0350s/frame |
-| Analog PhyCV Preprocessed Data | Acc (0.542)    
-IOU (0.245)  
-mIOU (0.616)
-0.0303s/frame | Acc (0.498)    
-IOU (0.234)  
-mIOU (0.611)
-0.0302s/frame | Acc (0.505)    
-IOU (0.230)  
-mIOU (0.609)
-0.0463s/frame |
+![Enter image alt description](Images/kkY_Image_2.jpeg)
 
 **TwinLiteNet Results**
 
-|  | All (10,000 Images) | Night (3929 Images) | Foggy (13 Images) |
-|---|---|---|---|
-| Benchmark | Acc (0.504)    
-IOU (0.272)  
-mIOU (0.631)
- | Acc(0.461)    
-IOU (0.254)  mIOU(0.622)
- | Acc (0.379)    
-IOU (0.223)  
-mIOU(0.607)
- |
-| Digital PhyCV Preprocessed Data | Acc(0.430)    
-IOU (0.232)  
-mIOU (0.610)
- | Acc(0.419)    
-IOU (0.226)  
-mIOU (0.608)
- | Acc(0.371)    
-IOU (0.213)  
-mIOU (0.602)
- |
-| Analog PhyCV Preprocessed Data | Acc(0.481)    
-IOU (0.257)  
-mIOU (0.623)
- | Acc(0.459)    
-IOU (0.247)  
-mIOU 0.618)
- | Acc(0.371)    
-IOU (0.215)  
-mIOU (0.603)
- |
+![Enter image alt description](Images/hIn_Image_3.jpeg)
 
 We see that we are able to improve the IOU consistently for YOLOP by training on analog PhyCV pre-processed data across normal, night, and foggy conditions.  Since IOU takes into account false positives whereas the line accuracy does not we think this is an important improvement.  For TwinLiteNet, we were unable to see improvement with our pre-processing strategy, however, different hyperparameter choices in the pre-processing could potentially help with this.
 
 Here we can see an example of running inference on a night image.  Some interesting features are that the analog pre-processed data models’ output tend to be less noisy and are even able to overcome issues like completing gaps between drawn lanes.  Compared with the digital pre-processed data models’ output, the analog ones seem to be closer to what a human driving would interpret the lanes as.
 
-![Enter image alt description](Images/ZCv_Image_2.jpeg)
+![Enter image alt description](Images/qxk_Image_4.jpeg)
 
 We can also see an example of running inference on a foggy image.  We see that in this case the YOLOP benchmark output seems to have the most detailed lane line outputs.  Between the digital and analog we see that the analog consistently outputs more detail than the digital and is closer to the benchmark and ground truth.
 
-![Enter image alt description](Images/jjl_Image_3.jpeg)
+![Enter image alt description](Images/VzG_Image_5.jpeg)
 
 ## References
 
@@ -260,23 +199,3 @@ We can also see an example of running inference on a foggy image.  We see that i
 - Github: [https://github.com/JalaliLabUCLA/phycv](https://github.com/JalaliLabUCLA/phycv)
 
 - Paper: [https://arxiv.org/pdf/2301.12531.pdf](https://arxiv.org/pdf/2301.12531.pdf) 
-
-List of things to do (delete before posting)
-
-Shihe
-
-- YOLOP repository upload
-
-- Add comments to the comparison and monitor ipynb notebooks that you wrote
-
-- Fill in information on training in the tasks below (5, 6 in particular)
-
-Ash
-
-- Write the collab demo (demo.ipynb) DONE
-
-- Add comments/upload my notebooks (primarily concerning steps 1-4) DONE
-
-- Fill in information in the readme including code structure also add references and the slideshow and link to collab DONE
-
-- Requirements.txt file DONE
