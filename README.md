@@ -170,13 +170,13 @@ We can also see an example of running inference on a foggy image.  We see that i
 
 ## References
 
-- BDD100K Dataset
+BDD100K Dataset
 
 - Documentation: [https://doc.bdd100k.com](https://doc.bdd100k.com/format.html)
 
 - Download: [https://bdd-data.berkeley.edu/](https://bdd-data.berkeley.edu/)
 
-- YOLOP: You Only Look Once for Panoptic Driving Perception by Wu et al.
+YOLOP: You Only Look Once for Panoptic Driving Perception by Wu et al.
 
 - Github: [https://github.com/hustvl/YOLOP](https://github.com/hustvl/YOLOP)
 
@@ -184,17 +184,13 @@ We can also see an example of running inference on a foggy image.  We see that i
 
 - Paper: [https://arxiv.org/pdf/2108.11250.pdf](https://arxiv.org/pdf/2108.11250.pdf)
 
-- TwinLiteNet: An Efficient and Lightweight Model for Driveable Area and Lane Segmentation in Self-Driving Cars
+TwinLiteNet: An Efficient and Lightweight Model for Driveable Area and Lane Segmentation in Self-Driving Cars
 
 - Github: [https://github.com/chequanghuy/TwinLiteNet](https://github.com/chequanghuy/TwinLiteNet)
 
 - Paper: [https://arxiv.org/pdf/2307.10705.pdf](https://arxiv.org/pdf/2307.10705.pdf)
 
-- You Only Look at Once for Real-Time and Generic Multi-Task by Wang et al.
-
-- Paper: [https://arxiv.org/pdf/2310.01641v3.pdf](https://arxiv.org/pdf/2310.01641v3.pdf)
-
-- PhyCV: The First Physics-inspired Computer Vision Library by Zhou et al.
+PhyCV: The First Physics-inspired Computer Vision Library by Zhou et al.
 
 - Github: [https://github.com/JalaliLabUCLA/phycv](https://github.com/JalaliLabUCLA/phycv)
 
