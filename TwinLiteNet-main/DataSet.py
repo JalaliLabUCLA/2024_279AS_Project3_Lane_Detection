@@ -91,7 +91,7 @@ class MyDataset(torch.utils.data.Dataset):
 
             self.names=os.listdir(self.root)
         else:
-            self.root='G:/UCLA/Lane Detection Project/Lane Detection/bdd100k_preprocessed_analog/images/train'
+            self.root='G:/UCLA/Lane Detection Project/Lane Detection/bdd100k_preprocessed_digital/images/train'
             self.names=os.listdir(self.root)
 
     def __len__(self):
