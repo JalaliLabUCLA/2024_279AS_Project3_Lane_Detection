@@ -2,7 +2,7 @@
 
 ## Introduction/Setup
 
-We suggest the project struture to be:
+The suggested project struture:
 ```
 ├─bdd100k
 │ ├─images
@@ -35,7 +35,7 @@ We suggest the project struture to be:
 │ ├─ ...
 ```
 
-The substructure of each data folder (e.g., images, images_foggy, images_night) should take the form:
+The substructure of each data folder (e.g., `images`, `images_foggy`, `images_night`) should take the form:
 ```
 images
 ├─train
