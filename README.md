@@ -2,10 +2,13 @@
 
 ## Introduction/Setup
 
-The basic setup is for every data folder (the ground truth, the input images, etc) to be of the form:
+The suggested project struture:
 ```
-Data folder
-├── train
+Lane Detection Project
+├──bdd100k
+│  ├──images
+│  ├──images_foggy
+│  ├──images_night
 └── val
 ```
 
