@@ -161,8 +161,9 @@ YOLOP records the testing accuracy/IOU/MIOU of each training epoch in log files 
 *5.5. Error Solution*
 
 The YOLOP code is slightly modified from its original repository due to some bugs: 
+
 a. Error: can't pickle generator objects. This error is solved by modifying some code according to this [website](https://blog.csdn.net/gong4717/article/details/125829915). \
-b. RuntimeError: result type Float can't be cast to the desired output type long int. This error is mainly due to the incompatible version, and can be solved by changing the CUDA and PyTorch versions suggested by the [website](https://github.com/ultralytics/yolov5/issues/8405). 
+b. RuntimeError: result type Float can't be cast to the desired output type long int. This error is mainly due to incompatible versions, and can be solved by changing the CUDA and PyTorch version suggested by the [website](https://github.com/ultralytics/yolov5/issues/8405). 
 
 **6. Train another Model on PST Preprocessed Data**
 
