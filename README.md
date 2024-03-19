@@ -75,7 +75,7 @@ Key file: `code/lanedetection.ipynb`
 
 See Section 1 of this notebook for examples of running the PST algorithm on various images.
 
-**2. Understanding BDD100K dataset**
+**2. Understand BDD100K dataset**
 
 Explore the BDD100K dataset and repository from Berkeley Deep Drive. Understand data formatting, training, evaluation APIs, and metadata. Create a Colab notebook that uses a PyTorch Dataloader to load images along with their category (daytime, nighttime, fog, etc.). Show images and annotations from each of these categories.
 
@@ -83,7 +83,7 @@ Key file: `code/lanedetection.ipynb`
 
 In Section 2 of this notebook, we load the BDD100K data into a dataframe with image names and the various conditions - weather, time, etc.  We display various example images with their annotations and information, as well as load them into a dataloader for convenient use in teh following steps.
 
-**3. Understanding Lane Line Detection Models**
+**3. Understand Lane Line Detection Models**
 
 Explore the BDD100K dataset and repository from Berkeley Deep Drive for training and evaluating lane line detection. Demonstrate inference with a pretrained model, and record accuracy on training, validation, and test datasets. You may use a smaller subset of the data if necessary. This will become your benchmark for further experimentation.
 
@@ -110,6 +110,7 @@ In the first section of `code/lanedetectionPreProcesser.ipynb`, we check if the 
 Train the benchmark lane line detection model on the PST preprocessed BDD100K images. Are you able to get back to the same accuracy as the benchmark?
 
 The benchmark model used here is [YOLOP](https://github.com/hustvl/YOLOP). Its repository is copied here as “YOLOP-main”. 
+
 
 5.1. Environment Preparation
 
