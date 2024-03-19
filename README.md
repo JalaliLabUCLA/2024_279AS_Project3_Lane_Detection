@@ -130,27 +130,27 @@ Note that this CUDA version might be too old for some relatively new NVIDIA GPUs
 
 First, the file paths of train/val datasets should be updated by going to `YOLOP-main/lib/config/default.py`.
 
-In Line 54,57,58, and 59 of the default.py file, change the path to image folder, det_annotations folder, da_seg_annotations folder, and path of ll_seg_annotations folder, separately. The variable “condition” has three options: “” (for all conditions), “_foggy” (for foggy condition only), and “_night” (for night condition only). If training on the whole dataset is required, it should be set to “”. 
+In Line 54,57,58, and 59, change the paths to the image folder, det_annotations folder, da_seg_annotations folder, and ll_seg_annotations folder, separately. The variable “condition” has three options: “” (for all conditions), “_foggy” (for foggy condition only), and “_night” (for night condition only). If training on the whole dataset is required, it should be set to “”. 
 
-Second, tune hyperparameters based on specific requirements. For example, we set the training batch size to be 16 (`_C.TRAIN.BATCH_SIZE_PER_GPU = 16`) to avoid the GPU out of memory error, and set the testing batch size to be 1 (`_C.TEST.BATCH_SIZE_PER_GPU = 1`) because we want the test each image sample individually.
+Second, tune hyperparameters based on specific requirements. For example, we set the training batch size to be 16 (`_C.TRAIN.BATCH_SIZE_PER_GPU = 16`) to avoid the GPU out of memory error, and set the testing batch size to be 1 (`_C.TEST.BATCH_SIZE_PER_GPU = 1`) because we want to evaluate each image sample individually.
 
 Third, start training by running the following code in the command line:
 
-`python tools/train.py`
+`python YOLOP-main/tools/train.py`
 
-5.3. Validation Process
+*5.3. Validation (Testing) Process*
 
-First, change the path of the weight file (.pth) we want to test in YOLOP-main/tools/test.py (Line 39), and set the specific “condition” variable in YOLOP-main/lib/config/default.py mentioned in 5.2.
+First, set the path of the weight file (.pth) that we want to test on in `YOLOP-main/tools/test.py` (Line 39), and set the specific “condition” variable in `YOLOP-main/lib/config/default.py` mentioned in 5.2 to test on different whether conditions.
 
-Second, start validation by running the following code int the command line:
+Second, start validating by running the following code in the command line:
 
-`python tools/test.py`
+`python YOLOP-main/tools/test.py`
 
-Refer to 7 to see all the final results .
+Please refer to 7 for the final results we get.
 
-5.4. Track the validation accuracy/IOU/MIOU of each epoch
+*5.4. Track/Compare the accuracy/IOU/MIOU of each epoch*
 
-YOLOP records the validation accuracy/IOU/MIOU after each training epoch in .log files in YOLOP-main/runs file. You can copy the log files you want to compare to be under the code file, then use Monitor.ipynb to visualize these metrics and loss with respect to epoch, or use Comparison.ipynb to visualize the difference between different trials. 
+YOLOP records the testing accuracy/IOU/MIOU of each training epoch in log files in `YOLOP-main/runs`. You may copy the log files you want to track/compare to `code/log`, then use `Monitor.ipynb` to visualize the trend of metrics and loss as a function of epoch, or use  `Comparison.ipynb` to visualize the difference between several trials. 
 
 **6. Train a Model on PST Preprocessed Data**
 
