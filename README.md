@@ -41,14 +41,13 @@ images
 ├─train
 ├─val
 ```
+Due to the size limit, the folders `bdd100k`, `bdd100k_label`, and `Weights` need to be downloaded from the provided links. The files in `bdd100k_preprocessed_analog` and `bdd100k_preprocessed_digital` can be generated using the code in `code`. 
 
-To run the preprocessing code in `code/`, the dependence in `code/requirements.txt` should be statisfied. For running inference or training on any of the models, please use the `requirements.txt` files included in their folders.  
+To run the preprocessing code, the dependence in `code/requirements.txt` should be statisfied. For running inference or training on any of the models, please use the `requirements.txt` files included in their folders.  
 
 ## Important Links
 
-Link to weights file for trained models:
-
-[Weights](https://drive.google.com/drive/u/0/folders/17HPpTAolBZBnmcHTsjMO5RUPojjTv-3E)
+Link to weights file for trained models:[Weights](https://drive.google.com/drive/u/0/folders/17HPpTAolBZBnmcHTsjMO5RUPojjTv-3E)
 
 Link to collab demo of inference:
 
