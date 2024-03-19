@@ -140,7 +140,7 @@ Third, start training by running the following code in the command line:
 
 *5.3. Validation (Testing) Process*
 
-First, set the path of the weight file (.pth) that we want to test on in `YOLOP-main/tools/test.py` (Line 39), and set the specific “condition” variable in `YOLOP-main/lib/config/default.py` mentioned in 5.2 to test on different whether conditions.
+First, set the path of the weight file (.pth) that we want to test on in `YOLOP-main/tools/test.py` (Line 39), and set the specific “condition” variable in `YOLOP-main/lib/config/default.py` mentioned in 5.2 to test on different weather conditions.
 
 Second, start validating by running the following code in the command line:
 
@@ -150,37 +150,38 @@ Please refer to 7 for the final results we get.
 
 *5.4. Track/Compare the accuracy/IOU/MIOU of each epoch*
 
-YOLOP records the testing accuracy/IOU/MIOU of each training epoch in log files in `YOLOP-main/runs`. You may copy the log files you want to track/compare to `code/log`, then use `Monitor.ipynb` to visualize the trend of metrics and loss as a function of epoch, or use  `Comparison.ipynb` to visualize the difference between several trials. 
+YOLOP records the testing accuracy/IOU/MIOU of each training epoch in log files in `YOLOP-main/runs`. You may copy the log files you want to track/compare to `code/`, then use `Monitor.ipynb` to visualize the trend of metrics and loss as a function of epoch, or use `Comparison.ipynb` to visualize the difference between several trials. 
 
-**6. Train a Model on PST Preprocessed Data**
+**6. Train another Model on PST Preprocessed Data**
 
 Train a lane line detection model with less parameters than the benchmark on the PST preprocessed BDD100K images. Are you able to get back to the same accuracy as the benchmark?
 
-The lightweight model used here is [TwinLiteNet](https://github.com/chequanghuy/TwinLiteNet). Its repository is copied here as “TwinLiteNet-main”. 
+The lightweight model used is [TwinLiteNet](https://github.com/chequanghuy/TwinLiteNet). Its repository is copied here as “TwinLiteNet-main”. 
 
-6.1. Environment Preparation
+*6.1. Environment Preparation*
 
-Using the same Pytorch environment as YOLOP is fine.
+Using the same PyTorch environment as YOLOP is fine.
 
-6.2. Training Process
+*6.2. Training Process*
 
-First, the paths for the training/validation dataset need to be modified by going to the TwinLiteNet-main/DataSet.py file.
+First, the file paths for the train/valid datasets need to be modified by going to `TwinLiteNet-main/DataSet.py`.
 
 In Line 90 and 94, change the paths to the correct validation and training files. In Line 111 and 112, replace the correct training/validation file paths to the corresponding label file paths.
 
-Second, set the training hyperparameters in TwinLiteNet-main/train.py.
+Second, set the training hyperparameters in `TwinLiteNet-main/train.py`.
 
 Third, start training by running the following code in the command line:
 
-`python main.py`
+`python TwinLiteNet-main/train.py`
 
-6.3. Validation Process
+*6.3. Validation(Testing) Process*
 
-First, change the path of the weight file (.pth) we want to test in TwinLiteNet-main/val.py (Line 50), and change the batch size to 1 if we want to test each image sample individually.
+First, update the path of the weight file (.pth) you want to test on in `TwinLiteNet-main/val.py` (Line 50), and change the batch size to 1 if you want to evaludat each image sample individually.
 
-Second, start validation by running the following code in the command line:
+Second, start validating by running the following code in the command line:
 
-`python val.py`
+`python TwinLiteNet-main/val.py`
+
 
 **7. Compare PST+DNN on Night Time Data**
 
