@@ -33,6 +33,7 @@ The suggested project struture:
 │ ├─Monitor.ipynb
 │ ├─Comparision.ipynb
 │ ├─requirements.txt
+├─demo.ipynb
 ```
 
 The substructure of each data folder (e.g., `images`, `images_foggy`, `images_night`) should take the form:
@@ -50,7 +51,7 @@ To run the preprocessing code, `code/requirements.txt` should be statisfied. For
 Weights files for already trained models: [Weights](https://drive.google.com/drive/u/0/folders/17HPpTAolBZBnmcHTsjMO5RUPojjTv-3E)
 
 
-Bdd100K original images: [bdd100k](https://bdd-data.berkeley.edu/)
+BDD100K original images: [bdd100k](https://bdd-data.berkeley.edu/)
 
 Annotations of lane line detection: [det_annotations](https://drive.google.com/file/d/1Ge-R8NTxG1eqd4zbryFo-1Uonuh0Nxyl/view)
 
@@ -61,7 +62,8 @@ Annotations of lane line segmentation: [ll_seg_annotations](https://drive.google
 (For annoations, try using the link provided above instead of using those from BDD100K website, because some modifications, such as the combination of parallel lane lines, has been done.)
 
 
-A collab demo of inference: [demo.ipynb](https://colab.research.google.com/drive/1tHJKpiTG0mY7KiPVXM05YFr-VFhBNLKY#scrollTo=SQSlB2psS8w-) (may need to copy folder it is stored in, [Lane_Detection_Code](https://drive.google.com/drive/u/0/folders/1ZIpxhzFyk8FEZX_znE3ooy_xfByrUXJW), to your Google Drive to run it.)
+A collab demo of inference: [demo.ipynb](https://colab.research.google.com/drive/1tHJKpiTG0mY7KiPVXM05YFr-VFhBNLKY#scrollTo=SQSlB2psS8w-) 
+(may need to copy folder it is stored in, [Lane_Detection_Code](https://drive.google.com/drive/u/0/folders/1ZIpxhzFyk8FEZX_znE3ooy_xfByrUXJW), to your Google Drive to run it.)
 
 ## Tasks
 
@@ -71,7 +73,7 @@ Read the PST paper, download the code from GitHub, and understand the algorithm 
 
 Key file: `code/lanedetection.ipynb`
 
-See section 1 of this notebook for examples of running the PST algorithm on various images.
+See Section 1 of this notebook for examples of running the PST algorithm on various images.
 
 **2. Understanding BDD100K dataset**
 
@@ -79,7 +81,7 @@ Explore the BDD100K dataset and repository from Berkeley Deep Drive. Understand 
 
 Key file: `code/lanedetection.ipynb`
 
-In section 2 of this notebook, we load the data into a dataframe with image names and the various conditions - weather, time, etc.  We display various example images with their annotation and information as well as load them into a dataframe for convenient use in experiments.
+In Section 2 of this notebook, we load the BDD100K data into a dataframe with image names and the various conditions - weather, time, etc.  We display various example images with their annotations and information, as well as load them into a dataloader for convenient use in teh following steps.
 
 **3. Understanding Lane Line Detection Models**
 
@@ -87,7 +89,7 @@ Explore the BDD100K dataset and repository from Berkeley Deep Drive for training
 
 Key files: `code/lanedetection.ipynb`, `YOLOP-main/tools/test.py`, `YOLOP-main/tools/demo.py`
 
-In section 3 of the notebook, we demonstrate inference on the pre-trained YOLOP model and record the accuracy and IOU on the training and validation sets.  In practice, however, it is easier to directly call test.py provided by YOLOP for accuracy and IOU or demo.py in the same folder for inference.
+In section 3 of the notebook, we demonstrate inference on the pre-trained YOLOP model and record the accuracy and IOU on the training and validation sets. In practice, however, it is easier to directly call `test.py` provided by YOLOP for accuracy and IOU or `demo.py` in the same folder for inference. Please see 5 for the details of calling these functions. 
 
 **4. Preprocess BDD100K images with PST**
 
@@ -95,13 +97,13 @@ Apply PST preprocessing to images in the BDD100K dataset. Understand the impact 
 
 Key files: `code/lanedetection.ipynb`, `code/lanedetectionPreProcesser.ipynb`
 
-We started by experimenting with several different preprocessing strategies including varying parameters, using different PhyCV algorithms, and applying different morphological operations at the end.  See the former notebook’s section 4 for some of the code used to run experiments.
+We start by experimenting with several different preprocessing strategies including varying parameters, using different PhyCV algorithms, and applying different morphological operations at the end. See section 4 in `code/lanedetection.ipynb` for the code used to run these experiments.
 
-In the end, the pre-processing pipeline we developed is as shown below (from slide 20 of the presentation) implemented in the latter notebook to output new folders with pre-processed data.
+The pre-processing pipeline we develop is shown as below (from slide 20 of the presentation), which is then implemented in `code/lanedetectionPreProcesser.ipynb` to output new folders with pre-processed data.
 
 ![Enter image alt description](readme_images/bNF_Image_1.jpeg)
 
-In the first section, we check if the image is nighttime or daytime.  If it is nighttime, then we run VEViD first to light it up since otherwise PST will destroy too many features in the darker parts of the image.  After we run PST, we can take the default output which is a digital image of 0s and 1s, however, we found that having all the pixels be binary black or white destroys too much information for lane detection.  As such, we can also preserve the original analog output which is a spectrum between 0 and 1.  Inspired by the method by which PST converts to a digital image using percentiles, we convert the spectrum to percentiles in each image and then pass to an x -> x^5 function on each individual pixel to remove unwanted background features.
+In the first section of `code/lanedetectionPreProcesser.ipynb`, we check if the image is nighttime or daytime. If it is nighttime, we run VEViD first to light it up since otherwise PST might destroy features in the darker parts of the image.  After we run PST, we take the default output which is a digital image of 0s and 1s. However, we find that having all the pixels be binary black or white destroys too much information for lane detection. As such, we can also preserve the original analog output which is a spectrum between 0 and 1.  Inspired by the method by which PST converts to a digital image using percentiles, we convert the spectrum to percentiles in each image and then pass to an x -> x^5 function on each individual pixel to remove unwanted background features.
 
 **5. Train a Model on PST Preprocessed Data**
 
