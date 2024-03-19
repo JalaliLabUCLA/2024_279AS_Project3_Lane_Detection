@@ -201,15 +201,16 @@ We present our results as follows.
 
 ![Enter image alt description](readme_images/kkY_Image_2.jpeg)
 
-We see that we are able to improve the IOU consistently for YOLOP by training on analog PhyCV pre-processed data across normal, night, and foggy conditions.  Since IOU takes into account false positives whereas the line accuracy does not we think this is an important improvement.  For TwinLiteNet, we were unable to see improvement with our pre-processing strategy, however, different hyperparameter choices in the pre-processing could potentially help with this.
+We are able to improve the IOU consistently (and even exceed the bench mark) for YOLOP by training on analog PhyCV pre-processed data across normal, night, and foggy conditions. Since IOU takes into account false positives whereas the line (pixel) accuracy does not, we think this is an important improvement. For TwinLiteNet, we are unable to see improvement with our pre-processing strategy, however, different hyperparameter choices in the pre-processing could potentially help with this.
 
-Here we can see an example of running inference on a night image.  Some interesting features are that the analog pre-processed data models’ output tend to be less noisy and are even able to overcome issues like completing gaps between drawn lanes.  Compared with the digital pre-processed data models’ output, the analog ones seem to be closer to what a human driving would interpret the lanes as.
+We can see an example of inference on a night image. The analog pre-processed data models’ output tends to be less noisy and is even able to overcome issues like completing gaps between drawn lanes. Compared to the digital pre-processed data models’ output, the analog one seems to be closer to what a human driving would interpret the lanes as.
 
 ![Enter image alt description](readme_images/qxk_Image_4.jpeg)
 
-We can also see an example of running inference on a foggy image.  We see that in this case the YOLOP benchmark output seems to have the most detailed lane line outputs.  Between the digital and analog we see that the analog consistently outputs more detail than the digital and is closer to the benchmark and ground truth.
+We can also see an example of the inference on a foggy image.  In this case, the YOLOP benchmark output seems to have the most detailed lane line outputs. Between the digital and analog, we see that the analog model consistently outputs more details than the digital one and is closer to the benchmark and the ground truth.
 
 ![Enter image alt description](readme_images/VzG_Image_5.jpeg)
+
 
 ## References
 
@@ -219,7 +220,7 @@ BDD100K Dataset
 
 - Download: [https://bdd-data.berkeley.edu/](https://bdd-data.berkeley.edu/)
 
-YOLOP: You Only Look Once for Panoptic Driving Perception by Wu et al.
+YOLOP: You Only Look Once for Panoptic Driving Perception
 
 - Github: [https://github.com/hustvl/YOLOP](https://github.com/hustvl/YOLOP)
 
@@ -233,7 +234,7 @@ TwinLiteNet: An Efficient and Lightweight Model for Driveable Area and Lane Segm
 
 - Paper: [https://arxiv.org/pdf/2307.10705.pdf](https://arxiv.org/pdf/2307.10705.pdf)
 
-PhyCV: The First Physics-inspired Computer Vision Library by Zhou et al.
+PhyCV: The First Physics-inspired Computer Vision Library
 
 - Github: [https://github.com/JalaliLabUCLA/phycv](https://github.com/JalaliLabUCLA/phycv)
 
