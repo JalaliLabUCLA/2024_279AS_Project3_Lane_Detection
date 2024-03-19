@@ -189,17 +189,17 @@ Compare the performance of the PST preprocessed model with the benchmark on spec
 
 Key files: `code/lanedetectionPreProcesser.ipynb`
 
-Using the 2nd part of this notebook, we can split every data_folder into data_folder_foggy and data_folder_night with the foggy and night parts respectively.  This allows us to run inference and test code on these subsets of the data.
+Using the second part of this notebook, we can split every image data folder into `images_foggy` and `images_night` with the foggy and night parts, respectively. This allows us to run inference and test code on these data subsets.
 
 We present our results as follows.
 
 **YOLOP Results**
 
-![Enter image alt description](readme_images/kkY_Image_2.jpeg)
+![Enter image alt description](readme_images/hIn_Image_3.jpeg)
 
 **TwinLiteNet Results**
 
-![Enter image alt description](readme_images/hIn_Image_3.jpeg)
+![Enter image alt description](readme_images/kkY_Image_2.jpeg)
 
 We see that we are able to improve the IOU consistently for YOLOP by training on analog PhyCV pre-processed data across normal, night, and foggy conditions.  Since IOU takes into account false positives whereas the line accuracy does not we think this is an important improvement.  For TwinLiteNet, we were unable to see improvement with our pre-processing strategy, however, different hyperparameter choices in the pre-processing could potentially help with this.
 
