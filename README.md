@@ -58,7 +58,7 @@ Annotations of drivable area segmentation: [da_seg_annotations](https://drive.go
 
 Annotations of lane line segmentation: [ll_seg_annotations](https://drive.google.com/file/d/1lDNTPIQj_YLNZVkksKM25CvCHuquJ8AP/view)
 
-(For annoations, try using the link provided above instead of using those from BDD100K website, because some modifications, such as combining the paralle lane lines, has been done.)
+(For annoations, try using the link provided above instead of using those from BDD100K website, because some modifications, such as the combination of parallel lane lines, has been done.)
 
 
 A collab demo of inference: [demo.ipynb](https://colab.research.google.com/drive/1tHJKpiTG0mY7KiPVXM05YFr-VFhBNLKY#scrollTo=SQSlB2psS8w-) (may need to copy folder it is stored in, [Lane_Detection_Code](https://drive.google.com/drive/u/0/folders/1ZIpxhzFyk8FEZX_znE3ooy_xfByrUXJW), to your Google Drive to run it.)
