@@ -6,19 +6,34 @@ The suggested project struture:
 ```
 Lane Detection Project
 ├─bdd100k
-│ ├──images
-│ ├──images_foggy
-│ ├──images_night
+│ ├─images
+│ ├─images_foggy
+│ ├─images_night
 ├─bdd100k_preprocessed_analog
-│ ├──images
-│ ├──images_foggy
-│ ├──images_night
+│ ├─images
+│ ├─images_foggy
+│ ├─images_night
 ├─bdd100k_preprocessed_digital
-│ ├──images
-│ ├──images_foggy
-│ ├──images_night
-
-
+│ ├─images
+│ ├─images_foggy
+│ ├─images_night
+├─bdd100k_label
+│ ├─da_seg_annotations
+│ ├─det_annotations
+│ ├─ll_seg_annotations
+├─YOLOP-main
+│ ├─ ...
+├─TwinLiteNet-main
+│ ├─ ...
+├─Weights
+│ ├─YOLOP
+│ ├─TwinLiteNet
+├─code
+│ ├─lanedetection.ipynb
+│ ├─lanedetectionPreProcessor.ipynb
+│ ├─Monitor.ipynb
+│ ├─Comparision.ipynb
+│ ├─ ...
 ```
 
 The specific file paths will likely need to be updated on a per-computer basis.  For example in `YOLOP-main/lib/config/default.py` there are several variables that store paths to these data folders.  For TwinLiteNet, the `TwinLiteNet-main/DataSet.py` file will need to be updated with the specific paths.  As an example, the input images in the experiment notebooks tend to be stored in `./bdd100k/images/100k` with ground truth in `./bdd100k/labels/lane/masks`.
