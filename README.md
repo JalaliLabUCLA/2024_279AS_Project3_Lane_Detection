@@ -41,27 +41,27 @@ images
 ├─train
 ├─val
 ```
-Due to the size limit, the folders `bdd100k`, `bdd100k_label`, and `Weights` need to be downloaded from the links provide below. `bdd100k_preprocessed_analog` and `bdd100k_preprocessed_digital` can be generated using the preprocessing code in `code/`. 
+Due to the large size limit, the `bdd100k`, `bdd100k_label`, and `Weights` folders need to be downloaded from the links provide below. `bdd100k_preprocessed_analog` and `bdd100k_preprocessed_digital` folders can be generated using the preprocessing code in `code/`. 
 
 To run the preprocessing code, `code/requirements.txt` should be statisfied. For training or running inference on any of the models, please use the `requirements.txt` files included in their folders.  
 
 ## Important Links
 
-Weights files for already trained models:[Weights](https://drive.google.com/drive/u/0/folders/17HPpTAolBZBnmcHTsjMO5RUPojjTv-3E)
+Weights files for already trained models: [Weights](https://drive.google.com/drive/u/0/folders/17HPpTAolBZBnmcHTsjMO5RUPojjTv-3E)
 
 
 Bdd100K original images: [bdd100k](https://bdd-data.berkeley.edu/)
 
-Annotations of lane line detection: [det_annotations](https://drive.google.com/file/d/1Ge-R8NTxG1eqd4zbryFo-1Uonuh0Nxyl/view).
+Annotations of lane line detection: [det_annotations](https://drive.google.com/file/d/1Ge-R8NTxG1eqd4zbryFo-1Uonuh0Nxyl/view)
 
-Annotations of drivable area segmentation: [da_seg_annotations](https://drive.google.com/file/d/1xy_DhUZRHR8yrZG3OwTQAHhYTnXn7URv/view).
+Annotations of drivable area segmentation: [da_seg_annotations](https://drive.google.com/file/d/1xy_DhUZRHR8yrZG3OwTQAHhYTnXn7URv/view)
 
-Annotations of lane line segmentation: [ll_seg_annotations](https://drive.google.com/file/d/1lDNTPIQj_YLNZVkksKM25CvCHuquJ8AP/view).
+Annotations of lane line segmentation: [ll_seg_annotations](https://drive.google.com/file/d/1lDNTPIQj_YLNZVkksKM25CvCHuquJ8AP/view)
 
 (For annoations, try using the link provided above instead of using those from BDD100K website, because some modifications, such as combining the paralle lane lines, has been done.)
 
 
-A collab demo of inference:[demo.ipynb](https://colab.research.google.com/drive/1tHJKpiTG0mY7KiPVXM05YFr-VFhBNLKY#scrollTo=SQSlB2psS8w-) (may need to copy folder it is stored in, [Lane_Detection_Code](https://drive.google.com/drive/u/0/folders/1ZIpxhzFyk8FEZX_znE3ooy_xfByrUXJW), to your Google Drive to run it.)
+A collab demo of inference: [demo.ipynb](https://colab.research.google.com/drive/1tHJKpiTG0mY7KiPVXM05YFr-VFhBNLKY#scrollTo=SQSlB2psS8w-) (may need to copy folder it is stored in, [Lane_Detection_Code](https://drive.google.com/drive/u/0/folders/1ZIpxhzFyk8FEZX_znE3ooy_xfByrUXJW), to your Google Drive to run it.)
 
 ## Tasks
 
