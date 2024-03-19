@@ -48,13 +48,13 @@ images_night
 ├─train
 ├─val
 ```
-Due to the large size limit, the `bdd100k`, `bdd100k_label`, and `Weights` folders need to be downloaded from the links provide below. `bdd100k_preprocessed_analog` and `bdd100k_preprocessed_digital` folders can be generated using the preprocessing code in `code/`. 
+Due to large size limit, the `bdd100k`, `bdd100k_label`, and `Weights` folders need to be downloaded from the links provide below. `bdd100k_preprocessed_analog` and `bdd100k_preprocessed_digital` folders can be then generated using the preprocessing code in `code/`. 
 
 To run the preprocessing code, `code/requirements.txt` should be statisfied. For training or running inference on any of the models, please use the `requirements.txt` files included in their folders.  
 
 ## Important Links
 
-Weights files for already trained models: [Weights](https://drive.google.com/drive/u/0/folders/17HPpTAolBZBnmcHTsjMO5RUPojjTv-3E)
+Weights files for trained models: [Weights](https://drive.google.com/drive/u/0/folders/17HPpTAolBZBnmcHTsjMO5RUPojjTv-3E)
 
 
 BDD100K original images: [bdd100k](https://bdd-data.berkeley.edu/)
@@ -157,6 +157,12 @@ Please refer to 7 for the final results we get.
 *5.4. Track/Compare the accuracy/IOU/MIOU of each epoch*
 
 YOLOP records the testing accuracy/IOU/MIOU of each training epoch in log files in `YOLOP-main/runs`. You may copy the log files you want to track/compare to `code/`, then use `Monitor.ipynb` to visualize the trend of metrics and loss as a function of epoch, or use `Comparison.ipynb` to visualize the difference between several trials. 
+
+*5.5. Error Solution*
+
+The YOLOP code is slightly modified from its original repository due to some bugs: 
+a. Error: can't pickle generator objects. This error is solved by modifying some code according to this [website](https://blog.csdn.net/gong4717/article/details/125829915). \
+b. RuntimeError: result type Float can't be cast to the desired output type long int. This error is mainly due to the incompatible version, and can be solved by changing the CUDA and PyTorch versions suggested by the [website](https://github.com/ultralytics/yolov5/issues/8405). 
 
 **6. Train another Model on PST Preprocessed Data**
 
