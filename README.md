@@ -109,26 +109,26 @@ In the first section of `code/lanedetectionPreProcesser.ipynb`, we check if the 
 
 Train the benchmark lane line detection model on the PST preprocessed BDD100K images. Are you able to get back to the same accuracy as the benchmark?
 
-The benchmark model used here is [YOLOP](https://github.com/hustvl/YOLOP). Its repository is copied here as “YOLOP-main”. 
 
+The benchmark model used is [YOLOP](https://github.com/hustvl/YOLOP). Its repository is copied here as “YOLOP-main”. 
 
-5.1. Environment Preparation
+*5.1. Environment Preparation*
 
-To train the YOLOP model, we will first need to follow the instructions in its repository to install all the requirements, which are copied here:
+To train the YOLOP model, we need to follow the instructions in its repository to install all the requirements, which are copied here:
 
 This codebase has been developed with python version 3.7, PyTorch 1.7+ and torchvision 0.8+:
 
 `conda install pytorch==1.7.0 torchvision==0.8.0 cudatoolkit=10.2 -c pytorch`
 
-See requirements.txt (in YOLOP-main) for additional dependencies and version requirements:
+See `YOLOP-main/requirements.txt` for additional dependencies and version requirements:
 
 `pip install -r requirements.txt`
 
-Note that this CUDA version might be too old for newer NVIDIA GPUs such as RTX 30 and 40 series. If an error occurs, a newer version of CUDA and the corresponding version of PyTorch need to be installed. For example, try using cuda=11.3, pytorch=1.12.0. The installation command can be found on the [PyTorch website](https://pytorch.org/get-started/previous-versions/). 
+Note that this CUDA version might be too old for some relatively new NVIDIA GPUs such as RTX 30 and 40 series. If an error occurs, a newer version of CUDA and its corresponding version of PyTorch need to be installed. For example, try using cuda=11.3, pytorch=1.12.0. The installation command can be found in the [PyTorch website](https://pytorch.org/get-started/previous-versions/). According to the pratical experience, also try to avoid using the most updated version of PyTorch, which is imcompactable with the YOLOP code. 
 
-5.2. Training Process
+*5.2. Training Process*
 
-First, the paths of the training/validation datasets should be updated by going to the YOLOP-main/lib/config/default.py file.
+First, the file paths of train/val datasets should be updated by going to `YOLOP-main/lib/config/default.py`.
 
 In Line 54,57,58, and 59 of the default.py file, change the path to image folder, det_annotations folder, da_seg_annotations folder, and path of ll_seg_annotations folder, separately. The variable “condition” has three options: “” (for all conditions), “_foggy” (for foggy condition only), and “_night” (for night condition only). If training on the whole dataset is required, it should be set to “”. 
 
