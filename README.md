@@ -1,6 +1,6 @@
 # 2024 Spring ECE279AS Project 3: Lane Detection via Physical Algorithms
 
-## Introduction/Setup
+## Setup
 
 The suggested project struture:
 ```
@@ -32,7 +32,7 @@ The suggested project struture:
 │ ├─lanedetectionPreProcessor.ipynb
 │ ├─Monitor.ipynb
 │ ├─Comparision.ipynb
-│ ├─ ...
+│ ├─requirements.txt
 ```
 
 The substructure of each data folder (e.g., `images`, `images_foggy`, `images_night`) should take the form:
@@ -42,9 +42,7 @@ images
 ├─val
 ```
 
-The specific file paths will likely need to be updated on a per-computer basis.  For example in `YOLOP-main/lib/config/default.py` there are several variables that store paths to these data folders.  For TwinLiteNet, the `TwinLiteNet-main/DataSet.py` file will need to be updated with the specific paths.  As an example, the input images in the experiment notebooks tend to be stored in `./bdd100k/images/100k` with ground truth in `./bdd100k/labels/lane/masks`.
-
-For dependencies, running the lanedetection notebooks in `code/` should be done with the `requirements.txt` file included in `code/`.  For running inference or training on any of the models please use their `requirements.txt` files included in their folders.  Strictly speaking, the same environment should work for everything, but following the aforementioned guidelines will minimize the risk of any problems.
+To run the preprocessing code in `code/`, the dependence in `code/requirements.txt` should be statisfied. For running inference or training on any of the models, please use the `requirements.txt` files included in their folders.  
 
 ## Important Links
 
