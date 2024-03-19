@@ -2,9 +2,8 @@
 
 ## Introduction/Setup
 
-The suggested project struture:
+We suggest the project struture to be:
 ```
-Lane Detection Project
 ├─bdd100k
 │ ├─images
 │ ├─images_foggy
@@ -34,6 +33,13 @@ Lane Detection Project
 │ ├─Monitor.ipynb
 │ ├─Comparision.ipynb
 │ ├─ ...
+```
+
+The substructure of each data folder (e.g., images, images_foggy, images_night) should take the form:
+```
+images
+├─train
+├─val
 ```
 
 The specific file paths will likely need to be updated on a per-computer basis.  For example in `YOLOP-main/lib/config/default.py` there are several variables that store paths to these data folders.  For TwinLiteNet, the `TwinLiteNet-main/DataSet.py` file will need to be updated with the specific paths.  As an example, the input images in the experiment notebooks tend to be stored in `./bdd100k/images/100k` with ground truth in `./bdd100k/labels/lane/masks`.
