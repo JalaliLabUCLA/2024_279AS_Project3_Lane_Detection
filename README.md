@@ -1,5 +1,5 @@
 # 2024 Winter ECE279AS Project 3: Lane Detection via Physical Algorithms
-
+This project was done in UCLA ECE279AS in the 2024 Winter Quarter, supervised by Prof. Bahram Jalali, Yiming Zhou, and Callen MacPhee.
 ## Setup
 
 The suggested project struture is:
